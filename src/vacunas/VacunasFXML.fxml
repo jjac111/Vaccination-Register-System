@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="468.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vacunas.VacunasFXMLController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TabPane layoutX="14.0" layoutY="14.0" prefHeight="413.0" prefWidth="687.0" style="-fx-border-color: lightgray;" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Main Menu">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ListView fx:id="mainMenuClinicasList" layoutX="14.0" layoutY="14.0" prefHeight="243.0" prefWidth="184.0" style="-fx-border-color: lightgray;" />
+                              <Button fx:id="mainMenuClinicaRemoveButton" layoutX="77.0" layoutY="272.0" mnemonicParsing="false" onAction="#handleMainMenuRemoveButton" text="Remove" />
+                              <VBox alignment="CENTER" layoutX="198.0" layoutY="14.0" prefHeight="243.0" prefWidth="193.0" spacing="20.0">
+                                 <children>
+                                    <Button fx:id="mainMenuMayorVacunasButton" mnemonicParsing="false" onAction="#handleMainMenuMayorVacunasButton" text="Mayor Vacunas" />
+                                    <Button fx:id="mainMenuInfanteSeleccionadoButton" mnemonicParsing="false" onAction="#handleMainMenuInfanteSeleccionadoButton" text="Infante Seleccionado" />
+                                    <Button fx:id="mainMenuEdadPromedioButton" mnemonicParsing="false" onAction="#handleMainMenuEdadPromedioButton" prefHeight="28.0" prefWidth="98.0" text="Edad Promedio" />
+                                    <Button fx:id="mainMenuIncumplimientoButton" lineSpacing="1.0" mnemonicParsing="false" onAction="#handleMainMenuIncumplieronVacunasButton" prefHeight="28.0" prefWidth="122.0" text="Incumplimiento Vacunación" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <TextArea fx:id="mainMenuMessages" editable="false" focusTraversable="false" layoutX="471.0" layoutY="14.0" prefHeight="250.0" prefWidth="200.0" promptText="Messages show here..." />
+                              <StackPane fx:id="mainMenuInfanteAsk" layoutX="178.0" layoutY="90.0" prefHeight="182.0" prefWidth="314.0" style="-fx-background-color: lightgray; -fx-border-color: gray;" visible="false">
+                                 <children>
+                                    <VBox alignment="CENTER" spacing="4.0">
+                                       <children>
+                                          <Label text="Nombre de infante:" />
+                                          <TextField fx:id="mainMenuNombreInfante" prefHeight="25.0" prefWidth="255.0" />
+                                          <Button fx:id="mainMenuComprobarButton" mnemonicParsing="false" onAction="#handleMainMenuComprobarButton" text="Comprobar" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                       </padding>
+                                       <StackPane.margin>
+                                          <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                       </StackPane.margin>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Clinicas">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ListView fx:id="clinicasList" layoutX="14.0" layoutY="14.0" prefHeight="268.0" prefWidth="200.0" />
+                              <ListView fx:id="clinicasInfantesList" layoutX="471.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
+                              <ChoiceBox fx:id="clinicasInfantesOptions" layoutX="471.0" layoutY="221.0" prefHeight="25.0" prefWidth="200.0" />
+                              <Button fx:id="clinicasInfanteAddButton" layoutX="545.0" layoutY="257.0" mnemonicParsing="false" onAction="#handleClinicasAddButton" text="Add" />
+                              <Button fx:id="clinicasInfanteRemoveButton" layoutX="405.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleClinicasRemoveButton" text="Remove" />
+                              <Button fx:id="clinicasEditButton" layoutX="14.0" layoutY="289.0" mnemonicParsing="false" onAction="#handleClinicasEditButton" text="Edit..." />
+                              <Label layoutX="221.0" layoutY="14.0" text="ID:" />
+                              <Label fx:id="clinicasID" layoutX="244.0" layoutY="14.0" prefHeight="17.0" prefWidth="161.0" />
+                              <StackPane fx:id="clinicasEditVacunas" layoutX="39.0" layoutY="30.0" prefHeight="333.0" prefWidth="610.0" style="-fx-background-color: lightgray; -fx-border-color: gray;" visible="false">
+                                 <children>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="335.0" prefWidth="597.0">
+                                       <children>
+                                          <GridPane alignment="CENTER" hgap="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="311.0" prefWidth="600.0" vgap="4.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <TextField fx:id="vac1" promptText="1" GridPane.rowIndex="1" />
+                                                <TextField fx:id="vac2" promptText="2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <TextField fx:id="vac3" promptText="3" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                <TextField fx:id="vac4" promptText="4" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                <TextField fx:id="vac5" promptText="5" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                                <TextField fx:id="vac6" promptText="6" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                                <TextField fx:id="vac7" promptText="7" GridPane.rowIndex="2" />
+                                                <TextField fx:id="vac8" promptText="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <TextField fx:id="vac9" promptText="9" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <TextField fx:id="vac10" promptText="10" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <TextField fx:id="vac11" promptText="11" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                                <TextField fx:id="vac12" promptText="12" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                                <TextField fx:id="vac13" promptText="13" GridPane.rowIndex="3" />
+                                                <TextField fx:id="vac14" promptText="14" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <TextField fx:id="vac15" promptText="15" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                                <TextField fx:id="vac16" promptText="16" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                                <TextField fx:id="vac17" promptText="17" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                                                <TextField fx:id="vac18" promptText="18" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                                                <TextField fx:id="vac19" promptText="19" GridPane.rowIndex="4" />
+                                                <TextField fx:id="vac20" promptText="20" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <TextField fx:id="vac21" promptText="21" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                                <TextField fx:id="vac22" promptText="22" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                                <TextField fx:id="vac23" promptText="23" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                                                <TextField fx:id="vac24" promptText="24" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                                                <TextField fx:id="vac25" promptText="25" GridPane.rowIndex="5" />
+                                                <TextField fx:id="vac26" promptText="26" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <TextField fx:id="vac27" promptText="27" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                                                <TextField fx:id="vac28" promptText="28" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                                <TextField fx:id="vac29" promptText="29" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+                                                <TextField fx:id="vac30" promptText="30" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+                                                <TextField fx:id="vac31" promptText="31" GridPane.rowIndex="6" />
+                                                <Button fx:id="vacUpdateButton" mnemonicParsing="false" onAction="#handleClinicasEditVacunasUpdateButton" text="Update" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                                <Button fx:id="vacCancelButton" cancelButton="true" mnemonicParsing="false" onAction="#handleClinicasEditVacunasCancelButton" text="Cancel" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+                                                <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="17.0" prefWidth="97.0" text="ID:" />
+                                                <TextField fx:id="newID" GridPane.columnIndex="1" />
+                                                <Button fx:id="vacNewButton" mnemonicParsing="false" onAction="#handleClinicasEditVacunasNewButton" text="New" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </StackPane>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Infantes">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ListView fx:id="infantesList" layoutX="14.0" layoutY="14.0" prefHeight="252.0" prefWidth="181.0" />
+                              <CheckBox fx:id="infantesToggle" layoutX="14.0" layoutY="274.0" mnemonicParsing="false" onAction="#handleInfantesToggle" text="Mostrar cédula" />
+                              <Button fx:id="infantesRemove" layoutX="79.0" layoutY="298.0" mnemonicParsing="false" onAction="#handleInfantesRemoveButton" text="Remove" />
+                              <Label layoutX="205.0" layoutY="14.0" text="Nombre:" />
+                              <Label layoutX="205.0" layoutY="48.0" text="Cedula:" />
+                              <Label layoutX="204.0" layoutY="84.0" text="Edad:" />
+                              <Label fx:id="infantesNombre" layoutX="262.0" layoutY="15.0" prefHeight="17.0" prefWidth="150.0" text="     " />
+                              <Label fx:id="infantesCedula" layoutX="262.0" layoutY="49.0" prefHeight="17.0" prefWidth="150.0" text="     " />
+                              <Label fx:id="infantesEdad" layoutX="262.0" layoutY="84.0" prefHeight="17.0" prefWidth="150.0" text="     " />
+                              <TextField fx:id="infantesNombreTxtF" layoutX="522.0" layoutY="10.0" promptText="Nombre" />
+                              <TextField fx:id="infantesCedulaTxtF" layoutX="522.0" layoutY="44.0" promptText="Cédula" />
+                              <TextField fx:id="infantesEdadTxtF" layoutX="522.0" layoutY="80.0" promptText="Edad" />
+                              <Button fx:id="infantesAddButton" layoutX="522.0" layoutY="115.0" mnemonicParsing="false" onAction="#handleInfantesAddButton" text="Add" />
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Datos Almacenados">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="datosAlmacenadosTxtArea" editable="false" layoutX="333.0" layoutY="14.0" prefHeight="356.0" prefWidth="338.0" promptText="Data shows here..." />
+                              <VBox alignment="CENTER" layoutX="86.0" layoutY="44.0" prefHeight="296.0" prefWidth="172.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="20.0">
+                                 <children>
+                                    <Button fx:id="datosAlmacenadosInfantesregionalesButton" mnemonicParsing="false" onAction="#handleDatosAlmacenadosInfantesregionalesButton" text="Infantes Regionales">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="datosAlmacenadosSeleccionButton" mnemonicParsing="false" onAction="#handleDatosAlmacenadosSeleccionButton" text="Selección">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="datosAlmacenadosEdadesPromedioButton" mnemonicParsing="false" onAction="#handleDatosAlmacenadosEdadesPromedioButton" text="Edades Promedio">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="datosAlmacenadosMayoresVacunacionesButton" mnemonicParsing="false" onAction="#handleDatosAlmacenadosMayoresVacunacionesButton" text="Mayores Vacunaciones">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="datosAlmacenadosIncumplimientosButton" mnemonicParsing="false" onAction="#handleDatosAlmacenadosIncumplimientosButton" text="Incumplimientos">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
